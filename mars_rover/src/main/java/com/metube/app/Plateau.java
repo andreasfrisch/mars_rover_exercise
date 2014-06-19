@@ -2,7 +2,7 @@ package com.metube.app;
 
 /**
  * The Mars plateau, where the wild rover roam
- * This class serves little purpose at this time
+ * This class is overkill for this exercise
  */
 public class Plateau {
 	private int width;
