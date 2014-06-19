@@ -45,7 +45,9 @@ public class Rover {
 			case Heading.East: return "E";
 			case Heading.South: return "S";
 			case Heading.West: return "W";
-			default: throw new IllegalArgumentException("Something went wrong");
+			default: throw new IllegalArgumentException(
+					"Illegal initial heading supplied"
+			);
 		}
 	}
 	public int get_x_coordinate() {
@@ -61,6 +63,9 @@ public class Rover {
 		if (order.equals("R")) {
 			rotate_rover_right();
 		}
+		if (order.equals("M")) {
+			move_rover();
+		}
 	}
 	/*
 	 * Private methods
@@ -72,6 +77,18 @@ public class Rover {
 		heading = (heading-1) % 4; //4 directions
 		if (heading < 0) { //fix sign of Java modulus
 			heading += 4;
+		}
+	}
+	private void move_rover() {
+		switch(heading) {
+			case Heading.North:
+				y_coordinate += 1; break;
+			case Heading.South:
+				y_coordinate -= 1; break;
+			case Heading.East:
+				x_coordinate += 1; break;
+			case Heading.West:
+				x_coordinate -= 1; break;
 		}
 	}
 }
