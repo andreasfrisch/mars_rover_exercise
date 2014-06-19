@@ -22,15 +22,16 @@ public class Rover {
 	Rover (int x, int y, String h) {
 		if (h.equals("N")) {
 			heading = Heading.North;
-		} else
-		if (h.equals("E")) {
+		} else if (h.equals("E")) {
 			heading = Heading.East;
-		} else
-		if (h.equals("S")) {
+		} else if (h.equals("S")) {
 			heading = Heading.South;
-		} else
-		if (h.equals("W")) {
+		} else if (h.equals("W")) {
 			heading = Heading.West;
+		} else {
+			throw new IllegalArgumentException(
+					"Illegal initial heading supplied"
+			);
 		}
 		x_coordinate = x;
 		y_coordinate = y;
@@ -45,8 +46,8 @@ public class Rover {
 			case Heading.East: return "E";
 			case Heading.South: return "S";
 			case Heading.West: return "W";
-			default: throw new IllegalArgumentException(
-					"Illegal initial heading supplied"
+			default: throw new IllegalStateException(
+					"Corrupted internal heading"
 			);
 		}
 	}
