@@ -29,8 +29,27 @@ public class RoverTest extends TestCase {
      */
     public void testRoverCreation() {
     	Rover rover = new Rover(0,0,"N");
-        assertTrue(rover.get_x_coordinate() == 0);
-        assertTrue(rover.get_y_coordinate() == 0);
+        assertEquals(rover.get_x_coordinate(),0);
+        assertEquals(rover.get_y_coordinate(),0);
         assertEquals(rover.get_heading(),"N");
+    }
+    public void testRoverRotateLeft() {
+    	Rover rover = new Rover(0,0,"N");
+    	assertEquals(rover.get_heading(),"N");
+    	rover.execute_order("L");
+    	assertEquals(rover.get_heading(),"W");
+    }
+    public void testRoverRotateRight() {
+    	Rover rover = new Rover(0,0,"N");
+    	assertEquals(rover.get_heading(),"N");
+    	rover.execute_order("R");
+    	assertEquals(rover.get_heading(),"E");
+    }
+    public void testRoverTurnAround() {
+    	Rover rover = new Rover(0,0,"N");
+    	assertEquals(rover.get_heading(),"N");
+    	rover.execute_order("R");
+    	rover.execute_order("R");
+    	assertEquals(rover.get_heading(),"S");
     }
 }
