@@ -45,11 +45,18 @@ public class RoverTest extends TestCase {
     	rover.execute_order("R");
     	assertEquals(rover.get_heading(),"E");
     }
-    public void testRoverTurnAround() {
+    public void testRoverTurnAroundRight() {
     	Rover rover = new Rover(0,0,"N");
     	assertEquals(rover.get_heading(),"N");
     	rover.execute_order("R");
     	rover.execute_order("R");
+    	assertEquals(rover.get_heading(),"S");
+    }
+    public void testRoverTurnAroundLeft() {
+    	Rover rover = new Rover(0,0,"N");
+    	assertEquals(rover.get_heading(),"N");
+    	rover.execute_order("L");
+    	rover.execute_order("L");
     	assertEquals(rover.get_heading(),"S");
     }
 }
