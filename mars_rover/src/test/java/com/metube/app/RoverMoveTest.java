@@ -7,13 +7,13 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class RoverTest extends TestCase {
+public class RoverMoveTest extends TestCase {
     /**
      * Create the test case
      *
      * @param testName name of the test case
      */
-    public RoverTest(String testName) {
+    public RoverMoveTest(String testName) {
         super(testName);
     }
 
@@ -21,53 +21,12 @@ public class RoverTest extends TestCase {
      * @return the suite of tests being tested
      */
     public static Test suite() {
-        return new TestSuite(RoverTest.class);
+        return new TestSuite(RoverMoveTest.class);
     }
 
     /**
      * Testing Rover creation and initial location
      */
-    public void testRoverCreation() {
-    	Rover rover = new Rover(0,0,"N");
-        assertEquals(rover.get_x_coordinate(),0);
-        assertEquals(rover.get_y_coordinate(),0);
-        assertEquals(rover.get_heading(),"N");
-    }
-    public void testIllegalRoverCreation() {
-    	boolean caught = false;
-    	try {
-    		Rover rover = new Rover(0,0,"Illegal");
-    	} catch (IllegalArgumentException thrown) {
-    		caught = true;
-    	}
-    	assertTrue(caught);
-    }
-    public void testRoverRotateLeft() {
-    	Rover rover = new Rover(0,0,"N");
-    	assertEquals(rover.get_heading(),"N");
-    	rover.execute_order("L");
-    	assertEquals(rover.get_heading(),"W");
-    }
-    public void testRoverRotateRight() {
-    	Rover rover = new Rover(0,0,"N");
-    	assertEquals(rover.get_heading(),"N");
-    	rover.execute_order("R");
-    	assertEquals(rover.get_heading(),"E");
-    }
-    public void testRoverTurnAroundRight() {
-    	Rover rover = new Rover(0,0,"N");
-    	assertEquals(rover.get_heading(),"N");
-    	rover.execute_order("R");
-    	rover.execute_order("R");
-    	assertEquals(rover.get_heading(),"S");
-    }
-    public void testRoverTurnAroundLeft() {
-    	Rover rover = new Rover(0,0,"N");
-    	assertEquals(rover.get_heading(),"N");
-    	rover.execute_order("L");
-    	rover.execute_order("L");
-    	assertEquals(rover.get_heading(),"S");
-    }
     public void testRoverMoveAheadNorth() {
     	Rover rover = new Rover(0,0,"N");
     	assertEquals(rover.get_y_coordinate(),0);
