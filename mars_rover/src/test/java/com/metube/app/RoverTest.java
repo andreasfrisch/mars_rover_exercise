@@ -33,6 +33,15 @@ public class RoverTest extends TestCase {
         assertEquals(rover.get_y_coordinate(),0);
         assertEquals(rover.get_heading(),"N");
     }
+    public void testIllegalRoverCreation() {
+    	boolean caught = false;
+    	try {
+    		Rover rover = new Rover(0,0,"Illegal");
+    	} catch (IllegalArgumentException thrown) {
+    		caught = true;
+    	}
+    	assertTrue(caught);
+    }
     public void testRoverRotateLeft() {
     	Rover rover = new Rover(0,0,"N");
     	assertEquals(rover.get_heading(),"N");
