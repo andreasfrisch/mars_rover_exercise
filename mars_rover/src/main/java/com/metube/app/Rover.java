@@ -45,7 +45,7 @@ public class Rover {
 			case Heading.East: return "E";
 			case Heading.South: return "S";
 			case Heading.West: return "W";
-			default: return "Q"; //TODO: error
+			default: throw new IllegalArgumentException("Something went wrong");
 		}
 	}
 	public int get_x_coordinate() {
@@ -56,22 +56,22 @@ public class Rover {
 	}
 	public void execute_order(String order) {
 		if (order.equals("L")) {
-			switch (heading) {
-				case Heading.North: heading = Heading.West; break;
-				case Heading.West: heading = Heading.South; break;
-				case Heading.South: heading = Heading.East; break;
-				case Heading.East: heading = Heading.North; break;
-				default: break;
-			}
+			rotate_rover_left();
 		} else
 		if (order.equals("R")) {
-			switch (heading) {
-				case Heading.North: heading = Heading.East; break;
-				case Heading.East: heading = Heading.South; break;
-				case Heading.South: heading = Heading.West; break;
-				case Heading.West: heading = Heading.North; break;
-				default: break;
-			}
+			rotate_rover_right();
+		}
+	}
+	/*
+	 * Private methods
+	 */
+	private void rotate_rover_right() {
+		heading = (heading+1) % 4; //4 directions
+	}
+	private void rotate_rover_left() {
+		heading = (heading-1) % 4; //4 directions
+		if (heading < 0) { //fix sign of Java modulus
+			heading += 4;
 		}
 	}
 }
