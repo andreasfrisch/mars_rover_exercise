@@ -59,4 +59,14 @@ public class RoverTest extends TestCase {
     	rover.execute_order("L");
     	assertEquals(rover.get_heading(),"S");
     }
+    public void testRoverMoveAheadNorth() {
+    	Rover rover = new Rover(0,0,"N");
+    	assertEquals(rover.get_y_coordinate(),0);
+    	assertEquals(rover.get_x_coordinate(),0);
+    	assertEquals(rover.get_heading(),"N");
+    	rover.execute_order("M");
+    	assertEquals(rover.get_y_coordinate(),1);
+    	assertEquals(rover.get_x_coordinate(),0);
+    	assertEquals(rover.get_heading(),"N");
+    }
 }
