@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple App.
+ * Unit test for simple Rover rotation.
  */
 public class RoverRotateTest extends TestCase {
     /**
@@ -25,7 +25,7 @@ public class RoverRotateTest extends TestCase {
     }
 
     /**
-     * Testing Rover creation and initial location
+     * Testing Rover rotation left and right
      */
     public void testRoverRotateLeft() {
     	Rover rover = new Rover(0,0,"N");
