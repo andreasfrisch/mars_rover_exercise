@@ -3,6 +3,9 @@ package com.metube.app;
 /**
  * The Mars plateau, where the wild rover roam
  * This class is overkill for this exercise
+ *
+ * Extending the exercise with AI or robot vision
+ * will make this class more useful.
  */
 public class Plateau {
 	private int width;
