@@ -43,8 +43,10 @@ public class RoverInstructionFileParserTest extends TestCase {
 		String tokenizedLine = Arrays.toString(
 				parser.tokenize_commands(line)
 		);
-		System.out.println(tokenizedLine);
-		//assertEquals(tokenizedLine, "[5, 5]");
+		String expectedResultLine = Arrays.toString(
+				"MRRML".split("")
+		);
+		assertEquals(tokenizedLine, expectedResultLine);
 	}
 	public void testUnknownFile() {
 		boolean caught = false;
