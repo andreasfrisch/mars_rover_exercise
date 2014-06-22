@@ -47,4 +47,7 @@ public class RoverInstructionFileParser {
 	public String[] tokenize(String line) {
 		return line.split(" ");
 	}
+	public String[] tokenize_commands(String line) {
+		return line.split("");
+	}
 }
