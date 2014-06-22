@@ -34,6 +34,18 @@ public class RoverInstructionFileParserTest extends TestCase {
 		String tokenizedLine = Arrays.toString(parser.tokenize(line));
 		assertEquals(tokenizedLine, "[5, 5]");
 	}
+	public void testCommandTokenizing() {
+		RoverInstructionFileParser parser =
+				new RoverInstructionFileParser("command_string_only.txt");
+		String line = parser.get_line();
+		assertEquals(line, "MRRML");
+		//TODO: perform proper array-equality test
+		String tokenizedLine = Arrays.toString(
+				parser.tokenize_commands(line)
+		);
+		System.out.println(tokenizedLine);
+		//assertEquals(tokenizedLine, "[5, 5]");
+	}
 	public void testUnknownFile() {
 		boolean caught = false;
 		try {
