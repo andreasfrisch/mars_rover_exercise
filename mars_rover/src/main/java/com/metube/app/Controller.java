@@ -36,7 +36,11 @@ public class Controller {
 				rover1_init[2]
 		);
 		//move rover 1
-		String rover1_commands = parser.get_line();
+		String[] rover1_commands = parser.tokenize_commands(parser.get_line());
+		//TODO: use enhanced for loop when upgrading java
+		for (int i=0; i<rover1_commands.length; i=i+1) {
+			rover1.execute_order(rover1_commands[i]);
+		}
 
 		String[] rover2_init = parser.tokenize(parser.get_line());
 		rover2 = new Rover(
@@ -45,7 +49,11 @@ public class Controller {
 				rover2_init[2]
 		);
 		//move rover 2
-		String rover2_commands = parser.get_line();
+		String[] rover2_commands = parser.tokenize_commands(parser.get_line());
+		//TODO: use enhanced for loop when upgrading java
+		for (int i=0; i<rover2_commands.length; i=i+1) {
+			rover2.execute_order(rover2_commands[i]);
+		}
 
 		//finally
 		//output new rover coordinates and heading
